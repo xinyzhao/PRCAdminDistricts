@@ -70,7 +70,7 @@
                             // 补充二级数据
                             if (node.districts == nil) {
                                 parent = [[PRCAdminDistrict alloc] initWithCode:node.code name:node.name];
-                                //parent.parent = node; //?
+                                parent.parent = node;
                                 node.districts = @[parent];
                             } else {
                                 parent = [node.districts firstObject];

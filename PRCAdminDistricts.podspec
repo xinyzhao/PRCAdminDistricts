@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PRCAdminDistricts"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Administrative districts of the People's Republic of China"
   s.description  = <<-DESC
                    Administrative districts of the People's Republic of China.
