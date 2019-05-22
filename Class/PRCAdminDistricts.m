@@ -63,10 +63,18 @@
                         // 三级行政区：区、县等待
                         code -= code % 100;
                         PRCAdminDistrict *parent = [districts objectForKey:@(code)];
+                        // 直辖市
                         if (parent == nil) {
-                            // 直辖市
                             code -= code % 10000;
-                            parent = [districts objectForKey:@(code)];
+                            PRCAdminDistrict *node = [districts objectForKey:@(code)];
+                            // 补充二级数据
+                            if (node.districts == nil) {
+                                parent = [[PRCAdminDistrict alloc] initWithCode:node.code name:node.name];
+                                //parent.parent = node; //?
+                                node.districts = @[parent];
+                            } else {
+                                parent = [node.districts firstObject];
+                            }
                         }
                         if (parent.districts == nil) {
                             parent.districts = @[obj];
