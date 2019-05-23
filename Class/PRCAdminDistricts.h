@@ -40,7 +40,6 @@
 
 - (PRCAdminDistrict *)districtForCode:(NSInteger)code;
 - (PRCAdminDistrict *)districtForName:(NSString *)name;
-
 @end
 
 @interface PRCAdminDistrict : NSObject
@@ -52,5 +51,6 @@
 
 - (instancetype)initWithCode:(NSInteger)code name:(NSString *)name;
 
+- (PRCAdminDistrict *)districtForName:(NSString *)name;
 @end
 

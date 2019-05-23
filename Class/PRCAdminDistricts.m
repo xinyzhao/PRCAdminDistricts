@@ -104,10 +104,25 @@
 }
 
 - (PRCAdminDistrict *)districtForName:(NSString *)name {
-    NSArray *districts = [self.districts allValues];
-    for (PRCAdminDistrict *obj in districts) {
+    for (PRCAdminDistrict *obj in self.provinces) {
         if ([obj.name hasPrefix:name]) {
             return obj;
+        }
+    }
+    for (PRCAdminDistrict *obj in self.provinces) {
+        for (PRCAdminDistrict *city in obj.districts) {
+            if ([city.name hasPrefix:name]) {
+                return city;
+            }
+        }
+    }
+    for (PRCAdminDistrict *obj in self.provinces) {
+        for (PRCAdminDistrict *city in obj.districts) {
+            for (PRCAdminDistrict *district in city.districts) {
+                if ([district.name hasPrefix:name]) {
+                    return district;
+                }
+            }
         }
     }
     return nil;
@@ -124,6 +139,23 @@
         self.name = name;
     }
     return self;
+}
+
+- (PRCAdminDistrict *)districtForName:(NSString *)name {
+    for (PRCAdminDistrict *obj in self.districts) {
+        for (PRCAdminDistrict *sub in obj.districts) {
+            if ([sub.name hasPrefix:name]) {
+                return sub;
+            }
+        }
+    }
+    for (PRCAdminDistrict *obj in self.districts) {
+        PRCAdminDistrict *sub = [obj districtForName:name];
+        if (sub) {
+            return sub;
+        }
+    }
+    return nil;
 }
 
 @end
