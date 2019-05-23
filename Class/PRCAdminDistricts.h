@@ -30,11 +30,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class PRCAdminDistrict;
+
 @interface PRCAdminDistricts : NSObject
-@property (nonatomic, strong) NSDictionary *districts;
-@property (nonatomic, strong) NSArray *provinces; //一级行政区：省
+@property (nonatomic, readonly) NSDictionary *districts;
+@property (nonatomic, readonly) NSArray *provinces; //一级行政区：省
 
 - (instancetype)initWithContentsOfFile:(NSString *)file;
+
+- (PRCAdminDistrict *)districtForCode:(NSInteger)code;
+- (PRCAdminDistrict *)districtForName:(NSString *)name;
 
 @end
 

@@ -24,6 +24,12 @@
 
 #import "PRCAdminDistricts.h"
 
+@interface PRCAdminDistricts ()
+@property (nonatomic, strong) NSDictionary *districts;
+@property (nonatomic, strong) NSArray *provinces;
+
+@end
+
 @implementation PRCAdminDistricts
 
 - (instancetype)initWithContentsOfFile:(NSString *)file {
@@ -91,6 +97,20 @@
         }
     }
     return self;
+}
+
+- (PRCAdminDistrict *)districtForCode:(NSInteger)code {
+    return [self.districts objectForKey:@(code)];
+}
+
+- (PRCAdminDistrict *)districtForName:(NSString *)name {
+    NSArray *districts = [self.districts allValues];
+    for (PRCAdminDistrict *obj in districts) {
+        if ([obj.name hasPrefix:name]) {
+            return obj;
+        }
+    }
+    return nil;
 }
 
 @end
