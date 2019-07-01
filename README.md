@@ -24,7 +24,7 @@ pod "PRCAdminDistricts"
 
 The data source from [Ministry of Civil Affairs of the People's Republic of China](http://www.mca.gov.cn/article/sj/xzqh)
 
-Copy and paste the code and name save in txt file to be used.
+Copy and paste the code/name save as txt file to be used.
 
 ## License
 
