@@ -31,12 +31,16 @@
 #import <Foundation/Foundation.h>
 
 @class PRCAdminDistrict;
+static const NSInteger PRCAdminDistrictUnknownCode = NSNotFound;
 
 @interface PRCAdminDistricts : NSObject
 @property (nonatomic, readonly) NSDictionary *districts;
 @property (nonatomic, readonly) NSArray *provinces; //一级行政区：省
 
-- (instancetype)initWithContentsOfFile:(NSString *)file;
+- (instancetype)initWithString:(NSString *)string;
+- (instancetype)initWithData:(NSData *)data encoding:(NSStringEncoding)encoding;
+- (instancetype)initWithFile:(NSString *)path encoding:(NSStringEncoding)encoding;
+- (instancetype)initWithURL:(NSURL *)url encoding:(NSStringEncoding)encoding;
 
 - (PRCAdminDistrict *)districtForCode:(NSInteger)code;
 - (PRCAdminDistrict *)districtForName:(NSString *)name;

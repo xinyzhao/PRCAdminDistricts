@@ -1,0 +1,20 @@
+//
+//  main.pch
+//  Demo
+//
+//  Created by xyz on 2019/6/29.
+//  Copyright © 2019 xinyzhao. All rights reserved.
+//
+
+#ifndef main_pch
+#define main_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <ReactiveObjC/ReactiveObjC.h>
+#import <ZXToolbox/ZXToolbox.h>
+
+#define MAJOR_COLOR [UIColor colorWithString:@"#00CC99"]
+#define MINOR_COLOR [UIColor colorWithString:@"#33CC66"]
+
+#endif /* main_pch */
